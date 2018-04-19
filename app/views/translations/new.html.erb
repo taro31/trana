@@ -1,0 +1,11 @@
+<div class="contents row">
+    <%= form_tag('/translations', method: :post) do %>
+	    <h1> 翻訳APP </h1>
+            <h3>ソース文章を入力してください。</h3>
+            <textarea name="source_text" placeholder="翻訳ソース文章を入力" rows="10" cols="50"></textarea>
+            <h3>ターゲット言語を選択してください。</h3>
+            <p>英語：en　簡体字：zh-CN　繁体字：zh-TW<br>韓国語：ko　日本語：ja</p>
+            <input type="string" name="target_la" placeholder="言語記号を入力">
+            <input type="submit" value="翻訳スタート">
+    <% end %>
+</div>
