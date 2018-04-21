@@ -8,8 +8,15 @@ class TranslationsController < ApplicationController
     end
     
     def create
-        Translation.create(translation_params)
-        Aitrans
+        source = translation_params
+        result = Aitrans.new
+        result = result.apitranslation(source)
+        
+        @source_text = result[:source_text]
+        @target_la = result[:target_la]
+        @google_tra = result[:google_tra]
+        @azure_tra = result[:azure_tra]
+        
     end
     
     private
