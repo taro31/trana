@@ -47,3 +47,7 @@ end
 
 gem 'pry-rails'
 gem 'rails', github: 'rails/rails', branch: '4-2-stable'
+
+group :production do
+  gem 'rails_12factor'
+end
