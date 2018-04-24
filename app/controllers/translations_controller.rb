@@ -17,6 +17,8 @@ class TranslationsController < ApplicationController
         @google_tra = result[:google_tra]
         @azure_tra = result[:azure_tra]
         
+        Translation.create(result)
+        
     end
     
     private

@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20180413101530) do
 
   create_table "translations", force: :cascade do |t|
-    t.text     "source_text"
-    t.string   "target_la"
-    t.text     "google_tra"
-    t.text     "azure_tra"
+    t.text     "source_text", limit: 65535
+    t.string   "target_la",   limit: 255
+    t.text     "google_tra",  limit: 65535
+    t.text     "azure_tra",   limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
