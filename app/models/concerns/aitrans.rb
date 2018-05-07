@@ -10,6 +10,9 @@ require 'cgi'
 class Aitrans            # < ActiveRecord::Base
     def apitranslation(source)
         inputtext = source[:source_text]
+        
+        inputtext = inputtext.gsub(/\r\n|\r|\n/, "<br />")
+        
         target = source[:target_la]
         
     #    binding.pry
@@ -47,9 +50,8 @@ class Aitrans            # < ActiveRecord::Base
         
         alltra = Kconv.toutf8(response.body)    #azureの文字化けエンコード指示
         
-        alllength = alltra.length           #全体の長さ
-        tralength = alllength - 77          #訳文の長さ
-        azureresult = alltra.slice(68 , tralength)     #訳文だけ抽出
+        alltra = alltra.gsub("<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">","").gsub("</string>", "")
+        azureresult = alltra.gsub("&lt;br&gt;", "<br />")
         
         #最後にハッシュに入れて戻す
         result = {source_text: inputtext, target_la: target, google_tra: googleresult, azure_tra: azureresult}

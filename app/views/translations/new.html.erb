@@ -8,8 +8,12 @@
             <h3>ソース文章を入力してください。</h3>
             <textarea class="form-control" name="source_text" placeholder="翻訳ソース文章を入力" rows="5"></textarea>
             <h3>ターゲット言語記号を入力してください。</h3>
-            <h4>英語：en　簡体字：zh-CN　繁体字：zh-TW　韓国語：ko　日本語：ja</h4>
-            <input class="form-control" type="string" name="target_la" placeholder="言語記号を入力">
+            
+            <%= form_for>
+            <%= f.select :target_la, [["英語", "en"], ["簡体字", "zh-CN"], ["繁体字", "zh-TW"], ["韓国語", "ko"], ["日本語", "ja"]] %>
+            <%end%>
+
+            
             <input class="btn btn-primary" type="submit" value="翻訳スタート">
     <% end %>
       

@@ -7,13 +7,13 @@
               <h1>翻訳APP</h1>
               <h3>翻訳完了</h3>
               <strong>ソース文章</strong>
-              <p> <%= @source_text %> </p>
+              <p> <%= simple_format @source_text %> </p>
               <strong>ターゲット言語</strong>
-              <p> <%= @target_la %> </p>
+              <p> <%= simple_format @target_la %> </p>
               <strong>google翻訳：</strong>
-              <p> <%= @google_tra %> </p>
+              <p> <%= simple_format @google_tra %> </p>
               <strong>Azure翻訳：</strong>
-              <p> <%= @azure_tra %> </p>
+              <p> <%= simple_format @azure_tra %> </p>
               
               <a class="btn btn-primary" href="translations/new">トップへ戻る</a>
          
