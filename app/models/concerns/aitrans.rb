@@ -50,6 +50,8 @@ class Aitrans            # < ActiveRecord::Base
         
         alltra = Kconv.toutf8(response.body)    #azureの文字化けエンコード指示
         
+        # binding.pry
+        
         alltra = alltra.gsub("<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">","").gsub("</string>", "")
         azureresult = alltra.gsub("&lt;br&gt;", "<br />")
         
