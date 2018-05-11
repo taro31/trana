@@ -14,6 +14,12 @@ class Aitrans            # < ActiveRecord::Base
         inputtext = inputtext.gsub(/\r\n|\r|\n/, "<br />")
         
         target = source[:target_la]
+            target = target.gsub(/英語/, "en")
+            target = target.gsub(/簡体字/, "zh-CN")
+            target = target.gsub(/繁体字/, "zh-TW")
+            target = target.gsub(/韓国語/, "ko")
+            target = target.gsub(/日本語/, "ja")
+        
         
     #    binding.pry
         
@@ -26,10 +32,8 @@ class Aitrans            # < ActiveRecord::Base
         
         hash = JSON.parse(res.body)         #JSONからハッシュの生成
         
-        a = hash["data"]["translations"]    #ハッシュの精査
-        hash2 = a[0]                        #なぜか配列が混ざってるので抽出
-        googleresult = hash2["translatedText"]        #翻訳文のみ抽出
-        #puts hash2["detectedSourceLanguage"]#ソース言語の抽出
+        googleresult = hash["data"]["translations"][0]["translatedText"]        #翻訳文のみ抽出
+        #puts hash["data"]["translations"][0]["detectedSourceLanguage"]         #ソース言語の抽出
     
     
         # azureのapi部分
@@ -54,6 +58,12 @@ class Aitrans            # < ActiveRecord::Base
         
         alltra = alltra.gsub("<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/\">","").gsub("</string>", "")
         azureresult = alltra.gsub("&lt;br&gt;", "<br />")
+        
+            target = target.gsub(/en/, "英語")
+            target = target.gsub(/zh-CN/, "簡体字")
+            target = target.gsub(/zh-TW/, "繁体字")
+            target = target.gsub(/ko/, "韓国語")
+            target = target.gsub(/ja/, "日本語")
         
         #最後にハッシュに入れて戻す
         result = {source_text: inputtext, target_la: target, google_tra: googleresult, azure_tra: azureresult}

@@ -1,20 +1,36 @@
-<header style="background-color:white"></header>
+
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2" style="background-color:white;"></div>
-    <div class="col-sm-8" style="background-color:white;">
-    <%= form_tag('/translations', method: :post) do %>
-	    <h1> 翻訳APP </h1>
-            <h3>ソース文章を入力してください。</h3>
-            <textarea class="form-control" name="source_text" placeholder="翻訳ソース文章を入力" rows="5"></textarea>
-            <h3>ターゲット言語記号を入力してください。</h3>
-            <h4>英語：en　簡体字：zh-CN　繁体字：zh-TW　韓国語：ko　日本語：ja</h4>
-            <input class="form-control" type="string" name="target_la" placeholder="言語記号を入力">
-            <input class="btn btn-primary" type="submit" value="翻訳スタート">
-    <% end %>
-      
-      </div>
-    <div class="col-sm-2" style="background-color:white;"></div>
+  <div class="jumbotron bg-primary"
+  style="color:#FFF; background:url(/assets/header-back.jpg); background-size:cover;">
+    <h1> 翻訳APP </h1>
+    <p>このサイトでは、Google・Microsoftの自動翻訳サービスを比較することができます。</p>
   </div>
+    <div class="col-sm-12">
+    <h2 class="page-header">ソース文の入力</h2>
+    <%= form_tag('/translations', method: :post) do %>
+    
+      <div class="form-group">
+      <label>文章を入力してください。</label>
+      <textarea class="form-control" name="source_text" placeholder="文章を入力" rows="5"></textarea>
+      </div>
+      
+      <div class="form-group">
+      <label>ターゲット言語を選択してください。</label>
+      <!--<p>英語：en　簡体字：zh-CN　繁体字：zh-TW　韓国語：ko　日本語：ja</p>-->
+      <select class="form-control" type="string" name="target_la">
+        <option>英語</option>
+        <option>簡体字</option>
+        <option>繁体字</option>
+        <option>韓国語</option>
+        <option>日本語</option>
+      </select>
+      </div>
+      
+      <div class="form-group">
+      <input class="btn btn-primary btn-block" type="submit" value="翻訳スタート">
+      </div>
+      
+    <% end %>
+    </div>
+
 </div>
-<footer style="background-color:white"></footer>
