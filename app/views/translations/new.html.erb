@@ -12,21 +12,29 @@
       <h2 class="page-header">ソース文の入力</h2>
       <%= form_tag('/translations', method: :post) do %>
       
-        <div class="form-group">
-        <label>文章を入力してください。</label>
-        <textarea  id="result_text" class="form-control" name="source_text" placeholder="文章を入力" rows="5"></textarea>
-        <input type="button" onClick="recognition.start();" value="認識開始">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+            <label>文章を入力、または音声認識ボタンを押して入力してください。</label>
+            <textarea  id="result_text" class="form-control" name="source_text" placeholder="文章を入力" rows="5"></textarea>
+            <input id="onseibtn" class="btn btn-primary pull-right" type="button" onClick="recognition.start();" value="音声認識を開始する">
+            </div>
+          </div>
         </div>
         
-        <div class="form-group">
-        <label>ターゲット言語を選択してください。</label>
-        <select class="form-control" type="string" name="target_la">
-          <option>英語</option>
-          <option>簡体字</option>
-          <option>繁体字</option>
-          <option>韓国語</option>
-          <option>日本語</option>
-        </select>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+            <label>ターゲット言語を選択してください。</label>
+            <select class="form-control" type="string" name="target_la">
+              <option>英語</option>
+              <option>簡体字</option>
+              <option>繁体字</option>
+              <option>韓国語</option>
+              <option>日本語</option>
+            </select>
+            </div>
+          </div>
         </div>
         
         <div class="form-group">
