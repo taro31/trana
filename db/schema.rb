@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413101530) do
+ActiveRecord::Schema.define(version: 20180627082521) do
 
   create_table "translations", force: :cascade do |t|
-    t.text     "source_text", limit: 65535
-    t.string   "target_la",   limit: 255
-    t.text     "google_tra",  limit: 65535
-    t.text     "azure_tra",   limit: 65535
+    t.text     "source_text",        limit: 65535
+    t.string   "target_la",          limit: 255
+    t.text     "google_tra",         limit: 65535
+    t.text     "azure_tra",          limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "upimg_file_name",    limit: 255
+    t.string   "upimg_content_type", limit: 255
+    t.integer  "upimg_file_size",    limit: 4
+    t.datetime "upimg_updated_at"
   end
 
 end

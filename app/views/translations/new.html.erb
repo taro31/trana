@@ -30,6 +30,18 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
+            <label>翻訳したい画像をアップロードする。</label>
+              <div calss="filed">
+                <%= f.label :upimg %><br />
+                <%= f.file_field :upimg %>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
             <label>ターゲット言語を選択してください。</label>
             <select class="form-control" type="string" name="target_la">
               <option>英語</option>
