@@ -1,0 +1,7 @@
+<h1>画像アップローダー</h1>
+
+<%= form_for @pic, :url => {:controller => :upimgs, :action => :create} do |f| %>
+    <%= f.label :image, "画像ファイル" %>
+    <%= f.file_field :image %><br>
+    <%= f.submit "アップロード" %>
+<% end %>
