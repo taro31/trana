@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   
   def size_range
-    1..3.megabytes
+    1..9.megabytes
   end
   
   process :resize_to_limit => [400, 400]
