@@ -16,8 +16,10 @@
         </div>
         
         <div>
-          <label>認識した文字</label>
-          <%= simple_format(Pic.last.ocr_text) %>
+          <label style="margin-top:20px;">文字認識結果</label>
+            <div class="thumbnail">
+              <%= simple_format(Pic.last.ocr_text) %>
+            </div>
         </div>
         
         <%= form_tag('/translations/create2', method: :post) do %>
