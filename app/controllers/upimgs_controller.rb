@@ -8,7 +8,13 @@ class UpimgsController < ApplicationController
   end
   
   def create
-    @pic = Pic.create(image_params)
+    Pic.create(image_params)
+    
+    #画像ダウンロード > base64化 > google cloud vision
+    pic = Pic.last
+    pic.ocr_text =  GoogleCloudVision.new.request
+    pic.save
+    redirect_to controller: :translations, action: :new2
   end
   
   private

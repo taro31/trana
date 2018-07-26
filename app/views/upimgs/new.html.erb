@@ -1,7 +1,26 @@
-<h1>画像アップローダー</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="jumbotron"
+        style="color:#FFF; background-image:linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
+        <h1> 翻訳APP </h1>
+        <p>このサイトでは、Google・Microsoftの自動翻訳サービスを比較することができます。</p>
+      </div>
+    </div>
 
-<%= form_for @pic, :url => {:controller => :upimgs, :action => :create} do |f| %>
-    <%= f.label :image, "画像ファイル" %>
-    <%= f.file_field :image %><br>
-    <%= f.submit "アップロード" %>
-<% end %>
+    <div class="col-xs-12">
+      <h2 class="page-header" style="margin-top:0px;">画像アップロード</h2>
+      
+        <%= form_for @pic, :url => {:controller => :upimgs, :action => :create}, html: {class: 'form-group'} do |f| %>
+        
+          <%= f.label :image, "画像ファイルを選択", class:"btn btn-primary btn-block" %>
+          <%= f.hidden_field :image_cache %>
+          <%= f.file_field :image, class:"fileInput", style:"display:none;" %>
+
+          <%= f.submit "アップロード", class:"btn btn-primary btn-block", style:"margin-top:10px;" %>
+        <% end %>
+        
+    </div>
+    
+  </div>
+</div>

@@ -9,26 +9,18 @@
     </div>
 
     <div class="col-xs-12">
-      <h2 class="page-header" style="margin-top:0px;">ソース文の入力</h2>
-      <%= form_tag('/translations', method: :post) do %>
-      
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-            <label>文章入力・音声認識・画像認識で入力してください。</label>
-            <textarea  id="result_text" class="form-control" name="source_text" placeholder="文章を入力" rows="5"></textarea>
-            </div>
-          </div>
+      <h2 class="page-header" style="margin-top:0px;">画像アップロード完了</h2>
+        
+        <div>
+          <%= image_tag Pic.last.image.to_s, class:"img-responsive" %>
         </div>
         
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="pull-right">
-              <a href="../../upimgs/new" class="btn btn-primary">画像アップロード</a>
-              <input class="btn btn-primary" type="button" onClick="recognition.start();" value="音声認識　Chromeのみ対応">
-            </div>
-          </div>
+        <div>
+          <label>認識した文字</label>
+          <%= simple_format(Pic.last.ocr_text) %>
         </div>
+        
+        <%= form_tag('/translations/create2', method: :post) do %>
         
         <div class="row" style="margin-top:10px;">
           <div class="col-xs-12">
@@ -39,7 +31,6 @@
               <option>簡体字</option>
               <option>繁体字</option>
               <option>韓国語</option>
-              <option>日本語</option>
             </select>
             </div>
           </div>
